@@ -1,9 +1,0 @@
-
-{
-  "presets": [
-    "backpack-core/babel",
-    "react",
-    "es2015",
-    "stage-0"
-  ]
-}

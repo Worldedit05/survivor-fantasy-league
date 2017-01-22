@@ -38,6 +38,3 @@ jspm_packages
 
 #Mac OS files
 .DS_Store
-
-#Babel Build files
-build

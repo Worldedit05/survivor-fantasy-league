@@ -1,12 +1,9 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { Container } from 're-bulma';
-import { Nav } from 're-bulma';
-import { NavGroup } from 're-bulma';
-import { NavItem } from 're-bulma';
-import { NavToggle } from 're-bulma';
-import { Icon } from 're-bulma';
-import { Button } from 're-bulma';
+
+import Sidebar from './components/Sidebar';
+import AdminPanel from './components/AdminPanel';
+import { Container, Columns, Column, Hero } from 're-bulma';
 
 injectTapEventPlugin();
 
@@ -14,11 +11,14 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <div>
-        <Container>
-          
-        </Container>
-      </div>
+      <Columns isGapless>
+        <Column size="is2">
+          <Sidebar></Sidebar>
+        </Column>
+        <Column size="is10">
+          <AdminPanel></AdminPanel>
+        </Column>
+      </Columns>
     )
   }
 }

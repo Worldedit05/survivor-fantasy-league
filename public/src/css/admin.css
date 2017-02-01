@@ -1,0 +1,16 @@
+body {
+  background-color: #FAFAFF;
+}
+div.title {
+  color: #fff;
+}
+.aside {
+  background-color: #30343F;
+  margin: 0px;
+}
+.main {
+  padding: 40px;
+}
+.style {
+  background-color: #FAFAFF;
+}

@@ -38,3 +38,6 @@ jspm_packages
 
 #Mac OS files
 .DS_Store
+
+#Config/Bundles Files
+config/config.js

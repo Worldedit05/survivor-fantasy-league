@@ -4,6 +4,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
 
 import TableRender from './Table.js';
+import PanelComponent from './Panel.js';
 
 export default class AdminPanel extends React.Component {
 
@@ -21,10 +22,23 @@ export default class AdminPanel extends React.Component {
                   </HeroBody>
                 </Hero>
               </Container>
-              <Column size="is10" offset="isOffset1">
+            </Column>
+            <section className="field">
+              <Column size="is12">
                 <TableRender></TableRender>
               </Column>
-            </Column>
+              <Columns size="is12">
+                <Column size="isOneThirdDesktop">
+                  <PanelComponent></PanelComponent>
+                </Column>
+                <Column size="isOneThirdDesktop">
+                  <PanelComponent></PanelComponent>
+                </Column>
+                <Column size="isOneThirdDesktop">
+                  <PanelComponent></PanelComponent>
+                </Column>
+              </Columns>
+            </section>
           </Columns>
         </Container>
 

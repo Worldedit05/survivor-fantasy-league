@@ -1,8 +1,8 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Sidebar from './components/Sidebar';
-import AdminPanel from './components/AdminPanel';
+import Sidebar from './dashboard/components/Sidebar';
+import AdminPanel from './dashboard/components/AdminPanel';
 import { Container, Columns, Column, Hero } from 're-bulma';
 
 injectTapEventPlugin();

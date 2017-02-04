@@ -8,6 +8,9 @@ const httpProxy = require('http-proxy');
 const Promise = require("bluebird");
 const config = require('./config/config.js');
 
+// Models
+const users = require('./api/routes/users');
+
 // Proxy dev server
 const proxy = httpProxy.createProxyServer();
 const app = express();
@@ -31,6 +34,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({
   type: "application/vnd.api+json"
 }));
+
+app.use('/users', users);
 
 if (!isProduction) {
 

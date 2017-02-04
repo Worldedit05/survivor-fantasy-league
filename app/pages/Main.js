@@ -16,7 +16,9 @@ export default class Main extends React.Component {
           <Sidebar></Sidebar>
         </Column>
         <Column size="is10">
-          <AdminPanel></AdminPanel>
+          <AdminPanel>
+            {this.props.children}
+          </AdminPanel>
         </Column>
       </Columns>
     )

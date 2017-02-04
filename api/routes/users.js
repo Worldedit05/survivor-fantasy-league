@@ -3,7 +3,9 @@ const router = require('express').Router();
 const User = require('../models/user');
 
 router.get('/', (req, res) => {
-  res.json("This should be all the users");
+  User.find({}, (err, results) => {
+    res.json(results);
+  });
 });
 
 router.get('/:username', (req, res) => {
@@ -11,7 +13,7 @@ router.get('/:username', (req, res) => {
   User.find({
     username: userId
   }, (err, results) => {
-    // console.log(res.json(results));
+
     res.json(results);
   });
 

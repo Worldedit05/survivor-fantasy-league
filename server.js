@@ -6,7 +6,7 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const httpProxy = require('http-proxy');
 const Promise = require("bluebird");
-// const config = require('./config/config.js');
+const config = require('./config/config.js');
 
 // Models
 const users = require('./api/routes/users');

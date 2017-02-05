@@ -12,7 +12,7 @@ body {
 }
 div.title {
   color: #fff;
-  font-size: 24px;
+  font-size: 30px;
 }
 .aside {
   background-color: #30343F;
@@ -31,4 +31,8 @@ div.title {
   color: #fff;
   list-style: none;
   font-size: 18px;
+  margin: 40px 0px;
+}
+ul.menu > li {
+  margin: 15px 0px;
 }

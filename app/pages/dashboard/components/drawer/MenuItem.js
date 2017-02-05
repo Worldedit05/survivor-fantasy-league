@@ -4,7 +4,12 @@ export default class MenuItem extends React.Component {
 
   render() {
     return (
-      <li>Test</li>
+      <ul className="menu">
+        <li>Dashboard</li>
+        <li>Scores</li>
+        <li>Survivor List</li>
+        <li>League Roster</li>
+      </ul>
     )
   }
 }

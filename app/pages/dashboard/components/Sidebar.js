@@ -13,11 +13,9 @@ export default class Sidebar extends React.Component {
         <Container>
           <div className="main">
             <div className="title">
-              Main Menu
+              Menu
             </div>
-            <div className="menu">
-              <Menu />
-            </div>
+            <Menu />
           </div>
         </Container>
       </aside>

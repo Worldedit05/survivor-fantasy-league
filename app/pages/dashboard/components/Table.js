@@ -24,38 +24,32 @@ export default class TableRender extends React.Component {
     const { users } = this.props;
 
     const mappedUsers = users.users.map((user, index) => <Tr key={user._id}>
-      <Td>{user.username}</Td>
-      <Td>{user.email}</Td>
-      <Td class="is-icon">
-        <a href="#">
-          <i className="fa fa-twitter"></i>
-        </a>
-      </Td>
-      <Td isIcon>
-        <a href="#">
-          <i className="fa fa-instagram"></i>
-        </a>
-      </Td>
+      <Td><strong>{user.firstName} {user.lastName}</strong></Td>
+      <Td></Td>
+      <Td><i>{user.tribeName}</i></Td>
+      <Td>{user.tribeMembers[0]}</Td>
+      <Td>{user.tribeMembers[1]}</Td>
+      <Td>{user.tribeMembers[2]}</Td>
+      <Td>{user.tribeMembers[3]}</Td>
+      <Td>{user.tribeMembers[4]}</Td>
+      <Td>{user.tribeMembers[5]}</Td>
     </Tr>)
     return (
       // This is an example table that I placed here for layout
-      <Table className="style">
+      <Table className="style" isStriped>
         <Thead>
           <Tr>
-            <Th>Username</Th>
-            <Th>Email</Th>
-            <Th></Th>
-            <Th></Th>
+            <Th>Player Name</Th>
+            <Th>Draft Position</Th>
+            <Th>Tribe Name</Th>
+            <Th>Tribe Pick #1</Th>
+            <Th>Tribe Pick #2</Th>
+            <Th>Tribe Pick #3</Th>
+            <Th>Tribe Pick #4</Th>
+            <Th>Tribe Pick #5</Th>
+            <Th>Tribe Pick #6</Th>
           </Tr>
         </Thead>
-        <Tfoot>
-          <Tr>
-           <Th></Th>
-           <Th></Th>
-           <Th></Th>
-           <Th></Th>
-          </Tr>
-        </Tfoot>
         <Tbody>
           {mappedUsers}
         </Tbody>

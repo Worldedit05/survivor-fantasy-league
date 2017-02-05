@@ -6,7 +6,7 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const httpProxy = require('http-proxy');
 const Promise = require("bluebird");
-const config = require('./config/config.js');
+
 
 // Models
 const users = require('./api/routes/users');
@@ -19,6 +19,8 @@ const app = express();
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 3000;
 const publicPath = path.resolve(__dirname, 'public');
+
+const config = isProduction ? "" : require('./config/config.js');
 
 // Connect to MongoDB
 const mongoLocalConn = `mongodb://${config.mongo.hostname}:${config.mongo.port}/${config.mongo.database}`;

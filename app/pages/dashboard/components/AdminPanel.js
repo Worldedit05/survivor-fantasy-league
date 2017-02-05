@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
@@ -6,9 +7,16 @@ import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
 import TableRender from './Table.js';
 import PanelComponent from './Panel.js';
 
+@connect((store) => {
+  return {
+    users: store.users
+  }
+})
+
 export default class AdminPanel extends React.Component {
 
   render () {
+    
     return (
         <Container>
           <Columns isMultiline>

@@ -24,6 +24,14 @@ const User = new mongoose.Schema({
     unique: true,
     match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
   },
+  firstName: {
+    type: String,
+    required: "First name is Required"
+  },
+  lastName: {
+    type: String,
+    required: "Last name is Required"
+  },
   tribeName: String,
   tribeId: String,
   tribeMembers: Array

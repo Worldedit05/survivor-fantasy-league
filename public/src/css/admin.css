@@ -1,0 +1,38 @@
+/*
+HEX color codes
+Sidebar - #30343F
+Background - #FAFAFF;
+Unused 1 - #E4D9FF;
+Unused 2 - #273469;
+Unused 3 - #1E2749;
+*/
+
+body {
+  background-color: #FAFAFF;
+}
+div.title {
+  color: #fff;
+  font-size: 30px;
+}
+.aside {
+  background-color: #30343F;
+  margin: 0px;
+}
+.main {
+  padding: 40px;
+}
+.style {
+  background-color: #FAFAFF;
+}
+.field {
+  padding: 20px 40px;
+}
+.menu {
+  color: #fff;
+  list-style: none;
+  font-size: 18px;
+  margin: 40px 0px;
+}
+ul.menu > li {
+  margin: 15px 0px;
+}

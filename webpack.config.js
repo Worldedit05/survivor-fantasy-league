@@ -35,6 +35,10 @@ module.exports = {
           plugins: ['transform-decorators-legacy']
         },
         exclude: [nodeModulesPath]
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
       }
     ]
   },

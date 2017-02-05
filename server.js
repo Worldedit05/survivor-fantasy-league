@@ -1,17 +1,41 @@
 "use strict";
-
-const express = require(`express`);
-const path = require(`path`);
+// Dependencies
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const bodyParser = require("body-parser");
 const httpProxy = require('http-proxy');
+const Promise = require("bluebird");
+const config = require('./config/config.js');
 
+// Models
+const users = require('./api/routes/users');
+
+// Proxy dev server
 const proxy = httpProxy.createProxyServer();
 const app = express();
 
+//Creating production and dev ports
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 3000;
 const publicPath = path.resolve(__dirname, 'public');
 
+// Connect to MongoDB
+const mongoLocalConn = `mongodb://${config.mongo.hostname}:${config.mongo.port}/${config.mongo.database}`;
+const mongoConnection = process.env.MONGODB_URI || mongoLocalConn;
+
 app.use(express.static(publicPath));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended:true
+}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({
+  type: "application/vnd.api+json"
+}));
+
+app.use('/users', users);
 
 if (!isProduction) {
 
@@ -32,6 +56,18 @@ proxy.on('error', (e) => {
 
 app.get('*', (req, res) => {
   res.sendFile('public/index.html', { root: __dirname });
+});
+
+mongoose.Promise = Promise;
+
+mongoose.connect(mongoConnection, () => {
+  console.log('Mongo connection successful');
+});
+
+const db = mongoose.connection;
+
+db.on("error", function(error) {
+  console.log("Mongoose Error: ", error);
 });
 
 app.listen(port, () => {

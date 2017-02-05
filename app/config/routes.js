@@ -6,7 +6,7 @@ import Main from '../pages/Main';
 module.exports = (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
-      
+      // <Route path="/users/:username" />
     </Route>
   </Router>
 );

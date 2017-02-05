@@ -1,14 +1,28 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
 
+import { fetchUsers } from '../../../actions/usersActions';
+
 import TableRender from './Table.js';
 import PanelComponent from './Panel.js';
 
+@connect((store) => {
+  return {
+    users: store.users
+  }
+})
+
 export default class AdminPanel extends React.Component {
 
+  componentWillMount() {
+    this.props.dispatch(fetchUsers());
+  }
+
   render () {
+    console.log(this.props);
     return (
         <Container>
           <Columns isMultiline>
@@ -25,7 +39,7 @@ export default class AdminPanel extends React.Component {
             </Column>
             <section className="field">
               <Column size="is12">
-                <TableRender></TableRender>
+                <TableRender props={this.props}></TableRender>
               </Column>
               <Columns size="is12">
                 <Column size="isOneThirdDesktop">

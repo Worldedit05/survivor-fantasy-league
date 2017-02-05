@@ -4,8 +4,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
 
-import { fetchUsers } from '../../../actions/usersActions';
-
 import TableRender from './Table.js';
 import PanelComponent from './Panel.js';
 
@@ -17,12 +15,8 @@ import PanelComponent from './Panel.js';
 
 export default class AdminPanel extends React.Component {
 
-  componentWillMount() {
-    this.props.dispatch(fetchUsers());
-  }
-
   render () {
-    console.log(this.props);
+    
     return (
         <Container>
           <Columns isMultiline>
@@ -39,7 +33,7 @@ export default class AdminPanel extends React.Component {
             </Column>
             <section className="field">
               <Column size="is12">
-                <TableRender props={this.props}></TableRender>
+                <TableRender></TableRender>
               </Column>
               <Columns size="is12">
                 <Column size="isOneThirdDesktop">

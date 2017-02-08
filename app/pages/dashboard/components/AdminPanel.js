@@ -9,14 +9,16 @@ import PanelComponent from './Panel.js';
 
 @connect((store) => {
   return {
-    users: store.users
+    userData: store.userData
   }
 })
 
 export default class AdminPanel extends React.Component {
 
   render () {
-    
+    const twitterPanelStyle = {backgroundColor: '#42afe3', color: '#fff'};
+    const weatherPanelStyle = {backgroundColor: '#273469', color: '#fff'};
+    const leaderBoardPanelStyle = {backgroundColor: '#1E2749', color: '#fff'};
     return (
         <Container>
           <Columns isMultiline>
@@ -37,13 +39,13 @@ export default class AdminPanel extends React.Component {
               </Column>
               <Columns size="is12">
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent></PanelComponent>
+                  <PanelComponent usersScore={this.props.userData} title="Leaderboard" iconType="fa fa-desktop" style={leaderBoardPanelStyle}></PanelComponent>
                 </Column>
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent></PanelComponent>
+                  <PanelComponent title="Weather in Location" iconType="fa fa-cloud" style={weatherPanelStyle}></PanelComponent>
                 </Column>
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent></PanelComponent>
+                  <PanelComponent title="Jeff Probst's Twitter Feed" iconType="fa fa-twitter" style={twitterPanelStyle}></PanelComponent>
                 </Column>
               </Columns>
             </section>

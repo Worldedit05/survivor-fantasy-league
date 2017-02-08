@@ -20,7 +20,7 @@ export default class TableRender extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    
     const { userData } = this.props;
     const textStyle = {textAlign: 'center'};
 

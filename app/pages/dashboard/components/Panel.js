@@ -7,14 +7,22 @@ export default class PanelComponent extends React.Component {
 
   render() {
 
-    console.log(this.props);
+    const { usersScore } = this.props;
+    let content = "Panel Content"
+
+    if (usersScore) {
+      content = usersScore.users.map((user, index) =>
+        <li key={index}>{user.firstName}</li>
+      )
+    }
+
     return (
       <Panel>
         <PanelHeading style={this.props.style}>
           {this.props.title} {this.props.icon}<Icon icon={this.props.iconType}/>
         </PanelHeading>
         <PanelBlock>
-          Panel Content
+          <ul>{content}</ul>
         </PanelBlock>
       </Panel>
     )

@@ -60,7 +60,7 @@ app.get('*', (req, res) => {
   res.sendFile('public/index.html', { root: __dirname });
 });
 
-// mongoose.Promise = Promise;
+mongoose.Promise = Promise;
 
 mongoose.connect(mongoConnection, () => {
   console.log('Mongo connection successful');

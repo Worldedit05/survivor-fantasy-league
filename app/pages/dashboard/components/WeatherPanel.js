@@ -16,7 +16,7 @@ export default class WeatherPanelComponent extends React.Component {
         <section>
           <Level>
             <LevelItem hasTextCentered>
-              <Title size="is4">Mamanuca Islands, Fiji</Title>
+              <Title size="is3"><i>Mamanuca Islands, Fiji</i></Title>
             </LevelItem>
           </Level>
           <br />

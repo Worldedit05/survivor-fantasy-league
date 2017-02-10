@@ -6,16 +6,28 @@ import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
 
 import TableRender from './Table.js';
 import PanelComponent from './Panel.js';
+import WeatherPanelComponent from './WeatherPanel.js';
+
+
+import { fetchWeather } from '../../../actions/weatherActions';
 
 @connect((store) => {
   return {
-    userData: store.userData
+    userData: store.userData,
+    weatherData: store.weatherData
   }
 })
 
 export default class AdminPanel extends React.Component {
 
+  componentWillMount() {
+    this.props.dispatch(fetchWeather());
+  }
+
   render () {
+
+    const { weatherData } = this.props;
+
     const twitterPanelStyle = {backgroundColor: '#42afe3', color: '#fff'};
     const weatherPanelStyle = {backgroundColor: '#273469', color: '#fff'};
     const leaderBoardPanelStyle = {backgroundColor: '#1E2749', color: '#fff'};
@@ -42,7 +54,7 @@ export default class AdminPanel extends React.Component {
                   <PanelComponent usersScore={this.props.userData} title="Leaderboard" iconType="fa fa-desktop" style={leaderBoardPanelStyle}></PanelComponent>
                 </Column>
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent title="Weather in Location" iconType="fa fa-cloud" style={weatherPanelStyle}></PanelComponent>
+                  <WeatherPanelComponent title="Current Weather in Fiji" weatherData={weatherData} iconType="fa fa-cloud" style={weatherPanelStyle}></WeatherPanelComponent>
                 </Column>
                 <Column size="isOneThirdDesktop">
                   <PanelComponent title="Jeff Probst's Twitter Feed" iconType="fa fa-twitter" style={twitterPanelStyle}></PanelComponent>

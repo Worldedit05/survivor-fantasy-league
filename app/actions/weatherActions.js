@@ -9,7 +9,7 @@ export function fetchWeather() {
     // let apiKey = config.apixu.apiKey;
     const apiKey = process.env.WEATHER_API_KEY;
 
-    axios.get("https://api.apixu.com/v1/current.json?key=" + apiKey + "&q=-17.666667, 177.083333")
+    axios.get("https://api.apixu.com/v1/current.json?key=077fc3e47be948bcaa005946171002&q=-17.666667, 177.083333")
     .then((response) => {
       dispatch({type: "FETCH_WEATHER_FULFILLED", payload: response.data});
     })

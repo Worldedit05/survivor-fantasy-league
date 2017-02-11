@@ -4,7 +4,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { fetchUsers } from '../../../actions/usersActions';
 
-
 import { Table, Thead, Tr, Th, Td, Tfoot, Tbody } from 're-bulma';
 
 @connect((store) => {
@@ -35,6 +34,7 @@ export default class TableRender extends React.Component {
       <Td>{user.tribeMembers[4]}</Td>
       <Td>{user.tribeMembers[5]}</Td>
     </Tr>)
+
     return (
       // This is an example table that I placed here for layout
       <Table className="style" isStriped>

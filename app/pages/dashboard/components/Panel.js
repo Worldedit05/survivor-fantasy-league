@@ -1,21 +1,24 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import { Panel, PanelHeading, PanelBlock, Icon } from 're-bulma';
+import { Panel, PanelHeading, PanelBlock, Icon, Table, Thead, Tr, Th, Td, Tbody } from 're-bulma';
 
 export default class PanelComponent extends React.Component {
 
   render() {
 
-    const { usersScore } = this.props;
+    let mappedUsers = "";
+    const textStyle = {textAlign: 'center'};
 
-    let content = "";
+    if (this.props.usersScore.users.length > 0) {
 
-    if (usersScore) {
-      content = usersScore.users.map((user, index) =>
-        <li key={index}>{user.firstName}</li>
-      )
-      content = <ui>{content}</ui>
+      const { usersScore } = this.props;
+
+      mappedUsers = usersScore.users.map((user, index) => <Tr key={user._id}>
+        <Td><strong>{user.firstName} {user.lastName.charAt(0)}</strong></Td>
+        <Td style={textStyle}>{user.score}</Td>
+      </Tr>)
+      console.log(mappedUsers);
     }
 
     return (
@@ -24,7 +27,17 @@ export default class PanelComponent extends React.Component {
           {this.props.title} {this.props.icon}
         </PanelHeading>
         <PanelBlock>
-
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>Player</Th>
+                <Th style={textStyle}>Score</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {mappedUsers}
+            </Tbody>
+          </Table>
         </PanelBlock>
       </Panel>
     )

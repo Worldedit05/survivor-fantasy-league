@@ -18,7 +18,7 @@ export default class PanelComponent extends React.Component {
         <Td><strong>{user.firstName} {user.lastName.charAt(0)}</strong></Td>
         <Td style={textStyle}>{user.score}</Td>
       </Tr>)
-      console.log(mappedUsers);
+      
     }
 
     return (

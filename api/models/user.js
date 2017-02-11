@@ -3,6 +3,8 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 mongoose.Promise = require('bluebird');
 
+const Survivor = require('../models/survivor');
+
 const User = new mongoose.Schema({
   username: {
     type: String,
@@ -37,6 +39,10 @@ const User = new mongoose.Schema({
   tribeName: String,
   tribeId: String,
   tribeMembers: Array,
+  survivors : [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Survivor'
+  }],
   draftPosition: Number,
   score: Number
 });

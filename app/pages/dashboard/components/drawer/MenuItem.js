@@ -7,7 +7,7 @@ export default class MenuItem extends React.Component {
       <ul className="menu">
         <li><a href="/">Dashboard</a></li>
         <li><a href="/scores">Scores</a></li>
-        <li><a href="">Survivor List</a></li>
+        <li><a href="/survivor-list">Survivor List</a></li>
         <li><a href="">League Roster</a></li>
       </ul>
     )

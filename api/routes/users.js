@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const User = require('../models/user');
+const Survivor = require('../models/survivor');
 
 router.get('/', (req, res) => {
   User.find({}, (err, results) => {
@@ -30,6 +31,20 @@ router.post('/', (req, res) => {
 
       res.json(err);
     } else {
+      res.json(doc);
+    }
+  });
+});
+
+router.post('/addsurvivor', (req, res) => {
+
+  let data = req.body;
+  let lastSurvivorIndex = data.survivors.length - 1;
+
+  User.findOneAndUpdate({_id: data.user_id}, {$push: {"survivors": data.survivor_id } }, { new: true}, (error, doc) => {
+    if (error) {
+      res.json(error);
+    }else {
       res.json(doc);
     }
   });

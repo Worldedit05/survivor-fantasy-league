@@ -3,42 +3,43 @@ import { connect } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { fetchUsers } from '../../../actions/usersActions';
+import { fetchSurvivors } from '../../../actions/survivorActions';
 
 import { Table, Thead, Tr, Th, Td, Tfoot, Tbody } from 're-bulma';
 
 @connect((store) => {
   return {
-    userData: store.userData
+    survivorData: store.survivorData
   }
 })
 
 export default class TableRender extends React.Component {
 
   componentWillMount() {
-    this.props.dispatch(fetchUsers());
+    this.props.dispatch(fetchSurvivors());
   }
 
   render() {
 
-    const { userData } = this.props;
+    const { survivorData } = this.props;
     const textStyle = {textAlign: 'center'};
 
-    const mappedUsers = userData.users.map((user, index) => <Tr key={user._id}>
-      <Td><strong>{user.firstName} {user.lastName}</strong></Td>
-      <Td>{user.draftPosition}</Td>
-      <Td><i>{user.tribeName}</i></Td>
-      <Td>{user.tribeMembers[0]}</Td>
-      <Td>{user.tribeMembers[1]}</Td>
-      <Td>{user.tribeMembers[2]}</Td>
-      <Td>{user.tribeMembers[3]}</Td>
-      <Td>{user.tribeMembers[4]}</Td>
+    const mappedUsers = survivorData.survivors.map((survivor, index) => <Tr key={survivor._id}>
+      <Td><strong>{survivor.firstName} {survivor.lastName}</strong></Td>
+      <Td style={textStyle}>{survivor.weeklyPoints[0]}</Td>
+      <Td style={textStyle}>{survivor.weeklyPoints[1]}</Td>
+      <Td style={textStyle}>{survivor.weeklyPoints[2]}</Td>
+      <Td style={textStyle}>{survivor.weeklyPoints[3]}</Td>
+      <Td style={textStyle}>{survivor.weeklyPoints[4]}</Td>
+      <Td style={textStyle}>{survivor.weeklyPoints[5]}</Td>
+      <Td style={textStyle}>{survivor.weeklyPoints.reduce((a,b) => a + b, 0)}</Td>
     </Tr>)
 
     return (
       // This is an example table that I placed here for layout
-      <Table className="style" isStriped>
+      <Table className="style" isStriped isBordered>
         <Thead>
-          <Tr>
+          <Tr style={textStyle}>
             <Th>Survivor</Th>
             <Th>Week 1</Th>
             <Th>Week 2</Th>

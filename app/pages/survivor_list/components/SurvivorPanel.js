@@ -22,12 +22,13 @@ export default class SurvivorPanel extends React.Component {
 
   render () {
 
-    const textStyle = {textAlign: 'center'};
     let { survivorData } = this.props;
     let content = "";
 
     if (survivorData.survivors.length > 0) {
-      content = survivorData.survivors.map((survivor, index) => <SurvivorCard key={survivor._id} firstName={survivor.firstName} lastName={survivor.lastName} points={survivor.weeklyPoints} img={survivor.img}></SurvivorCard>)
+      content = survivorData.survivors.map((survivor, index) => <Column size="is3">
+        <SurvivorCard key={survivor._id} firstName={survivor.firstName} lastName={survivor.lastName} points={survivor.weeklyPoints} img={survivor.img}></SurvivorCard>
+      </Column>)
     }
 
     return (
@@ -45,9 +46,9 @@ export default class SurvivorPanel extends React.Component {
               </Container>
             </Column>
             <section className="field">
-              <Column size="is12">
-                {content}
-              </Column>
+            <Columns isMultiline>
+              {content}
+            </Columns>
             </section>
           </Columns>
         </Container>

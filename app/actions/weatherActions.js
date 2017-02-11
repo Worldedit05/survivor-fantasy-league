@@ -1,6 +1,6 @@
 import axios from 'axios';
 const isProduction = process.env.NODE_ENV === 'production';
-const config = isProduction ? require('../../config/config.sample.js') : require('../../config/config.js');
+const config = isProduction ? require('../../config/config.sample.js') : process.env.APIXU_KEY;
 
 export function fetchWeather() {
 

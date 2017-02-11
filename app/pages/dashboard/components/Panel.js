@@ -24,7 +24,7 @@ export default class PanelComponent extends React.Component {
           {this.props.title} {this.props.icon}
         </PanelHeading>
         <PanelBlock>
-          {content}
+
         </PanelBlock>
       </Panel>
     )

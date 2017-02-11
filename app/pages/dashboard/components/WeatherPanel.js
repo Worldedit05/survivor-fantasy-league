@@ -30,6 +30,7 @@ export default class WeatherPanelComponent extends React.Component {
             </LevelItem>
           </Level>
           <br />
+          <br />
           <Level>
             <LevelItem hasTextCentered>
               <Heading>Temp</Heading>
@@ -44,6 +45,7 @@ export default class WeatherPanelComponent extends React.Component {
               <Title>{weatherData.currentWeather.current.feelslike_f}°F</Title>
             </LevelItem>
           </Level>
+          <br />
           <br />
           <Level>
             <LevelItem hasTextCentered>

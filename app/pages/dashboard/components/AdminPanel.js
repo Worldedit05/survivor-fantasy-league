@@ -7,6 +7,7 @@ import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
 import TableRender from './Table.js';
 import PanelComponent from './Panel.js';
 import WeatherPanelComponent from './WeatherPanel.js';
+import TwitterPanelComponent from './TwitterPanel.js';
 
 
 import { fetchWeather } from '../../../actions/weatherActions';
@@ -57,7 +58,7 @@ export default class AdminPanel extends React.Component {
                   <WeatherPanelComponent title="Current Weather in Fiji" weatherData={weatherData} iconType="fa fa-cloud" style={weatherPanelStyle}></WeatherPanelComponent>
                 </Column>
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent title="Jeff Probst's Twitter Feed" iconType="fa fa-twitter" style={twitterPanelStyle}></PanelComponent>
+                  <TwitterPanelComponent title="Jeff Probst's Twitter Feed" iconType="fa fa-twitter" style={twitterPanelStyle}></TwitterPanelComponent>
                 </Column>
               </Columns>
             </section>

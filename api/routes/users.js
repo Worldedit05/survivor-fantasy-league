@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
 
   let newUser = new User(data);
 
-  newUser.save(data, (err, doc) => {
+  newUser.save((err, doc) => {
     if (err) {
       console.log(err);
 

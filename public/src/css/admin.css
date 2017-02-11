@@ -21,6 +21,9 @@ div.title {
 .main {
   padding: 40px;
 }
+.icon {
+  margin-right: 10px;
+}
 .style {
   background-color: #FAFAFF;
 }

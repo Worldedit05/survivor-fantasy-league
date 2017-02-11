@@ -4,12 +4,11 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import { fetchUsers } from '../../../actions/usersActions';
 
-
 import { Table, Thead, Tr, Th, Td, Tfoot, Tbody } from 're-bulma';
 
 @connect((store) => {
   return {
-    users: store.users
+    userData: store.userData
   }
 })
 
@@ -20,12 +19,13 @@ export default class TableRender extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    const { users } = this.props;
 
-    const mappedUsers = users.users.map((user, index) => <Tr key={user._id}>
-      <Td><strong>{user.firstName} {user.lastName}</strong></Td>
-      <Td></Td>
+    const { userData } = this.props;
+    const textStyle = {textAlign: 'center'};
+
+    const mappedUsers = userData.users.map((user, index) => <Tr key={user._id}>
+      <Td><strong>{user.firstName} {user.lastName.charAt(0)}</strong></Td>
+      <Td style={textStyle}>{user.draftPosition}</Td>
       <Td><i>{user.tribeName}</i></Td>
       <Td>{user.tribeMembers[0]}</Td>
       <Td>{user.tribeMembers[1]}</Td>
@@ -34,6 +34,7 @@ export default class TableRender extends React.Component {
       <Td>{user.tribeMembers[4]}</Td>
       <Td>{user.tribeMembers[5]}</Td>
     </Tr>)
+
     return (
       // This is an example table that I placed here for layout
       <Table className="style" isStriped>

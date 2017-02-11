@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
+mongoose.Promise = require('bluebird');
+
 const User = new mongoose.Schema({
   username: {
     type: String,
@@ -34,7 +36,9 @@ const User = new mongoose.Schema({
   },
   tribeName: String,
   tribeId: String,
-  tribeMembers: Array
+  tribeMembers: Array,
+  draftPosition: Number,
+  score: Number
 });
 
 User.plugin(uniqueValidator);

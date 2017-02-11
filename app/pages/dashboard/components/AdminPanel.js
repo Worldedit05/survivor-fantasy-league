@@ -6,17 +6,32 @@ import { Columns, Column, Container, Hero, HeroBody } from 're-bulma';
 
 import TableRender from './Table.js';
 import PanelComponent from './Panel.js';
+import WeatherPanelComponent from './WeatherPanel.js';
+import TwitterPanelComponent from './TwitterPanel.js';
+
+
+import { fetchWeather } from '../../../actions/weatherActions';
 
 @connect((store) => {
   return {
-    users: store.users
+    userData: store.userData,
+    weatherData: store.weatherData
   }
 })
 
 export default class AdminPanel extends React.Component {
 
+  componentWillMount() {
+    this.props.dispatch(fetchWeather());
+  }
+
   render () {
-    
+
+    const { weatherData } = this.props;
+
+    const twitterPanelStyle = {backgroundColor: '#42afe3', color: '#fff'};
+    const weatherPanelStyle = {backgroundColor: '#273469', color: '#fff'};
+    const leaderBoardPanelStyle = {backgroundColor: '#1E2749', color: '#fff'};
     return (
         <Container>
           <Columns isMultiline>
@@ -37,13 +52,13 @@ export default class AdminPanel extends React.Component {
               </Column>
               <Columns size="is12">
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent></PanelComponent>
+                  <PanelComponent usersScore={this.props.userData} title="Leaderboard" iconType="fa fa-desktop" style={leaderBoardPanelStyle}></PanelComponent>
                 </Column>
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent></PanelComponent>
+                  <WeatherPanelComponent title="Current Weather in Fiji" weatherData={weatherData} iconType="fa fa-cloud" style={weatherPanelStyle}></WeatherPanelComponent>
                 </Column>
                 <Column size="isOneThirdDesktop">
-                  <PanelComponent></PanelComponent>
+                  <TwitterPanelComponent title="Jeff Probst's Twitter Feed" iconType="fa fa-twitter" style={twitterPanelStyle}></TwitterPanelComponent>
                 </Column>
               </Columns>
             </section>

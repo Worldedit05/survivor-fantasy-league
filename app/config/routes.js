@@ -2,11 +2,15 @@ import React from 'react';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 import Main from '../pages/Main';
+import Scores from '../pages/Scores';
+import Survivor from '../pages/Survivor';
 
 module.exports = (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
-      // <Route path="/users/:username" />
+
     </Route>
+    <Route path="/scores" component={Scores} />
+    <Route path="/survivor-list" component={Survivor} />
   </Router>
 );

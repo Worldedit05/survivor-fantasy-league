@@ -10,6 +10,7 @@ const Promise = require("bluebird");
 
 // Models
 const users = require('./api/routes/users');
+const survivors = require('./api/routes/survivors');
 
 // Proxy dev server
 const proxy = httpProxy.createProxyServer();
@@ -38,6 +39,7 @@ app.use(bodyParser.json({
 }));
 
 app.use('/users', users);
+app.use('/survivors', survivors);
 
 if (!isProduction) {
 

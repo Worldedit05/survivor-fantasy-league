@@ -14,12 +14,18 @@ div.title {
   color: #fff;
   font-size: 30px;
 }
+a:hover {
+    color: #fff;
+}
 .aside {
   background-color: #30343F;
   margin: 0px;
 }
 .main {
   padding: 40px;
+}
+.icon {
+  margin-right: 10px;
 }
 .style {
   background-color: #FAFAFF;

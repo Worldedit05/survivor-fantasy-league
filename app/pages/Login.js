@@ -7,7 +7,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <Hero isBold={true} size="isFullheight" color="isDark" style= {{backgroundImage: 'linearGradient(141deg, #495a67 0%, #69707a 71%, #6e768e 100%)'}}>
+      <Hero isBold={true} size="isFullheight" color="isDark" style= {{backgroundImage: 'linearGradient(141deg, #1E2749 0%, #273469 71%, #30343F 100%)'}}>
         <HeroBody>
           <Container>
             <Columns>
